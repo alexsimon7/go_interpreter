@@ -9,6 +9,12 @@ func TestNextToken(t *testing.T) {
 	input := `let five = 5;
 let ten = 10;
 
+let halfoffive = 2.5;
+
+let halfofone = .5;
+
+let badfloat = .5.;
+
 let add = fn(x, y) {
   x + y;
 };
@@ -28,6 +34,21 @@ let result = add(five, ten);
 		{token.IDENT, "ten"},
 		{token.ASSIGN, "="},
 		{token.INT, "10"},
+		{token.SEMICOLON, ";"},
+		{token.LET, "let"},
+		{token.IDENT, "halfoffive"},
+		{token.ASSIGN, "="},
+		{token.FLOAT, "2.5"},
+		{token.SEMICOLON, ";"},
+		{token.LET, "let"},
+		{token.IDENT, "halfofone"},
+		{token.ASSIGN, "="},
+		{token.FLOAT, ".5"},
+		{token.SEMICOLON, ";"},
+		{token.LET, "let"},
+		{token.IDENT, "badfloat"},
+		{token.ASSIGN, "="},
+		{token.ILLEGAL, ".5."},
 		{token.SEMICOLON, ";"},
 		{token.LET, "let"},
 		{token.IDENT, "add"},
